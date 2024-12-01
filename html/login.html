@@ -3,16 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="/css/login.css" />
-  <script type="module" defer src="/js/login.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
-  </head>
+  <title>회원가입</title>
   <style>
-  
     body {
       font-family: "Poppins", sans-serif;
       margin: 0;
@@ -34,7 +26,7 @@
       z-index: -1; /* 배경 요소로 뒤로 보냄 */
     }
 
-    .login-card {
+    .signup-card {
       background: rgba(255, 255, 255, 0.8); /* 반투명 흰색 배경 */
       border-radius: 10px;
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -44,13 +36,19 @@
       z-index: 1; /* 비디오 위에 표시되도록 설정 */
     }
 
-    .login-card h3 {
-      text-align: center;
-      color: #333;
+    /* 로고 스타일 */
+    .logo {
+      display: flex;
+      justify-content: center;
       margin-bottom: 20px;
     }
 
-    .login-card input {
+    .logo img {
+      width: 150px; /* 로고 크기 조정 */
+      height: auto;
+    }
+
+    .signup-card input {
       width: 100%;
       margin-bottom: 20px;
       padding: 10px;
@@ -58,7 +56,7 @@
       border: 1px solid #ccc;
     }
 
-    .login-card button {
+    .signup-card button {
       width: 100%;
       padding: 10px;
       border: none;
@@ -69,16 +67,16 @@
       cursor: pointer;
     }
 
-    .login-card button:hover {
+    .signup-card button:hover {
       background: #45a049;
     }
 
-    .login-card .options {
+    .signup-card .options {
       text-align: center;
       margin-top: 10px;
     }
 
-    .login-card .options a {
+    .signup-card .options a {
       color: #4ea685;
       text-decoration: none;
     }
@@ -88,22 +86,20 @@
   <!-- 배경 동영상 -->
   <video class="background-video" autoplay muted loop>
     <source src="/image/207184.mp4" type="video/mp4" />
-    
   </video>
-  <form id="login-form">
-  <div class="login-card">
-    <h3>Login</h3>
-    <form id="login-form">
+
+  <div class="signup-card">
+    <!-- 로고 삽입 -->
+    <div class="logo animate__animated animate__backInLeft" onclick="navigateToPage()">
+      Planify
+    </div>
+    <form id="signup-form">
       <input type="email" id="email" placeholder="이메일" required />
       <input type="password" id="password" placeholder="비밀번호" required />
-      <button type="submit">Login</button>
-      
+      <input type="password" id="confirm-password" placeholder="비밀번호 확인" required />
+      <input type="text" id="nickname" placeholder="이름" required />
+      <button type="submit">회원가입</button>
     </form>
-    <div class="options">
-      <p><a href="#">비밀번호를 잊으셨나요?</a></p>
-      <p>계정이 없으신가요? <a href="#">회원 가입</a></p>
-    </div>
   </div>
-  
 </body>
 </html>
